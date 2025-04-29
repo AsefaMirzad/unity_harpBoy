@@ -517,7 +517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4977194613474792438, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8694231365259779660, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: speed
@@ -847,7 +847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4977194613474792438, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8694231365259779660, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: speed
@@ -1296,7 +1296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4977194613474792438, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8694231365259779660, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: speed
@@ -1729,7 +1729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4977194613474792438, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8694231365259779660, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: speed
@@ -2637,7 +2637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4977194613474792438, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8694231365259779660, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: speed
@@ -2891,7 +2891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4977194613474792438, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8694231365259779660, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: speed
@@ -3193,7 +3193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4977194613474792438, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8694231365259779660, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: speed
@@ -3416,7 +3416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4977194613474792438, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8694231365259779660, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: speed
@@ -3481,7 +3481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6998378380158817290, guid: 7955cd3d52c35f94b92a51d6d6f96f43, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
