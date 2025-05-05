@@ -9,26 +9,26 @@ public class Playermovement : MonoBehaviour
     public float jumpHeight = 1.5f;
     public float jumpDuration = 0.6f;
     private bool isJumping = false;
-    private Vector3 startPosition;
-    void Start()
-    {
-        startPosition = transform.position;
-    }
+    private Vector3 jumpStartPosition; // Speichert die Position beim Sprungbeginn
+    private int jumpStartLaneIndex; // Speichert die Spur beim Sprungbeginn
 
-    
     public Transform[] lanes; // Die 5 Spalten
     private int currentLaneIndex = 2; // Startet in der Mitte (Index 2)
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-            MoveLeft();
-        if (Input.GetKeyDown(KeyCode.D))
-            MoveRight();
-
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        // Bewegung nur erlauben, wenn nicht mitten im Sprung
+        if (!isJumping)
         {
-            StartCoroutine(Jump());
+            if (Input.GetKeyDown(KeyCode.A))
+                MoveLeft();
+            if (Input.GetKeyDown(KeyCode.D))
+                MoveRight();
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StartCoroutine(Jump());
+            }
         }
     }
 
@@ -59,18 +59,22 @@ public class Playermovement : MonoBehaviour
         );
     }
 
-
-    private System.Collections.IEnumerator Jump()
+    private IEnumerator Jump()
     {
         isJumping = true;
-        float elapsed = 0f;
+        jumpStartPosition = transform.position; // Speichere die Startposition
+        jumpStartLaneIndex = currentLaneIndex; // Speichere die aktuelle Spur
 
-        Vector3 jumpPeak = startPosition + Vector3.up * jumpHeight;
+        float elapsed = 0f;
+        Vector3 jumpPeak = jumpStartPosition + Vector3.up * jumpHeight;
 
         // Aufwärtsbewegung
         while (elapsed < jumpDuration / 2)
         {
-            transform.position = Vector3.Lerp(startPosition, jumpPeak, elapsed / (jumpDuration / 2));
+            // Behalte die x-Position der Startspur während des Sprungs
+            Vector3 newPos = Vector3.Lerp(jumpStartPosition, jumpPeak, elapsed / (jumpDuration / 2));
+            newPos.x = lanes[jumpStartLaneIndex].position.x; // Fixiere die x-Position auf die Startspur
+            transform.position = newPos;
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -79,12 +83,21 @@ public class Playermovement : MonoBehaviour
         elapsed = 0f;
         while (elapsed < jumpDuration / 2)
         {
-            transform.position = Vector3.Lerp(jumpPeak, startPosition, elapsed / (jumpDuration / 2));
+            // Behalte die x-Position der Startspur während des Sprungs
+            Vector3 newPos = Vector3.Lerp(jumpPeak, jumpStartPosition, elapsed / (jumpDuration / 2));
+            newPos.x = lanes[jumpStartLaneIndex].position.x; // Fixiere die x-Position auf die Startspur
+            transform.position = newPos;
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        transform.position = startPosition;
+        // Zurück zur ursprünglichen Position (mit möglicher neuer Spur)
+        transform.position = new Vector3(
+            lanes[currentLaneIndex].position.x,
+            jumpStartPosition.y,
+            jumpStartPosition.z
+        );
+
         isJumping = false;
     }
 
