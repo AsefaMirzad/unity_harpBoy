@@ -36,7 +36,7 @@ public class Arrow : MonoBehaviour
         {
             if (Input.GetKeyDown(assignedKey))
             {
-                distanceToCenter = Mathf.Abs(transform.position.y - HitZone.Instance.transform.position.y);
+
 
                 if (distanceToCenter < 0.2f)
                 {

@@ -7,23 +7,7 @@ public class Obstacle : MonoBehaviour
     // Start is called before the first frame update
     public float speed = 5f;
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Playermovement player = other.GetComponent<Playermovement>();
-            if (player != null && !player.IsJumping())
-            {
-                Debug.Log("Hindernis getroffen!");
-                // TODO: hier später Leben abziehen oder Effekt auslösen
-            }
-            else
-            {
-                Debug.Log("Spieler ist gesprungen und hat das Hindernis übersprungen.");
-            }
-        }
-    }
-    private void Update()
+    void Update()
     {
         transform.position += Vector3.down * speed * Time.deltaTime;
 
@@ -37,8 +21,21 @@ public class Obstacle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ScoreManager.Instance.Miss(); // Minuspunkte
-            Destroy(gameObject);
+            Playermovement player = other.GetComponent<Playermovement>();
+            if (player != null)
+            {
+                if (!player.IsJumping())
+                {
+                    Debug.Log("?? Hindernis getroffen (2D)!");
+                    // TODO: Leben abziehen
+                }
+                else
+                {
+                    Debug.Log("?? Spieler hat das Hindernis übersprungen (2D).");
+                }
+
+                Destroy(gameObject); // Optional
+            }
         }
     }
 }

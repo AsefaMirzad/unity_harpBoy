@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class HitZone : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public static HitZone Instance;
-
-    private void Awake()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
+        if (other.CompareTag("Obstacle"))
+        {
+            Destroy(other.gameObject);  // Obstacle wird nur hier zerstört
+        }
     }
 }
