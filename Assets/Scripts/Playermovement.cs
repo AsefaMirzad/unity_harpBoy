@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Playermovement : MonoBehaviour
-{ 
+{
     // Start is called before the first frame update
+
+    public float jumpHeight = 1.5f;
+    public float jumpDuration = 0.6f;
+    private bool isJumping = false;
+    private Vector3 startPosition;
     void Start()
     {
-        
+        startPosition = transform.position;
     }
 
     
@@ -20,6 +25,11 @@ public class Playermovement : MonoBehaviour
             MoveLeft();
         if (Input.GetKeyDown(KeyCode.D))
             MoveRight();
+
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        {
+            StartCoroutine(Jump());
+        }
     }
 
     void MoveLeft()
@@ -47,5 +57,39 @@ public class Playermovement : MonoBehaviour
             transform.position.y,
             transform.position.z
         );
+    }
+
+
+    private System.Collections.IEnumerator Jump()
+    {
+        isJumping = true;
+        float elapsed = 0f;
+
+        Vector3 jumpPeak = startPosition + Vector3.up * jumpHeight;
+
+        // Aufwärtsbewegung
+        while (elapsed < jumpDuration / 2)
+        {
+            transform.position = Vector3.Lerp(startPosition, jumpPeak, elapsed / (jumpDuration / 2));
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Abwärtsbewegung
+        elapsed = 0f;
+        while (elapsed < jumpDuration / 2)
+        {
+            transform.position = Vector3.Lerp(jumpPeak, startPosition, elapsed / (jumpDuration / 2));
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = startPosition;
+        isJumping = false;
+    }
+
+    public bool IsJumping()
+    {
+        return isJumping;
     }
 }

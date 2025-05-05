@@ -179,7 +179,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.7, y: -0.13, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.93518, y: 0.93518, z: 0.93518}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 771241682}
@@ -907,7 +907,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.037266016}
@@ -935,6 +935,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33dda88013fdf004fa13d11d5a05be41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpHeight: 1.5
+  jumpDuration: 0.6
   lanes:
   - {fileID: 25574066}
   - {fileID: 1830517280}
@@ -1670,7 +1672,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.05, y: 4.3761, z: 0}
-  m_LocalScale: {x: 2.055, y: 2.055, z: 2.055}
+  m_LocalScale: {x: 2.3482616, y: 2.055, z: 2.055}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3410,6 +3412,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4482453252863472813, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4977194613474792438, guid: 502e955c37ef2214fb57b63bfcc51653, type: 3}
       propertyPath: m_Name
       value: Obstacle
@@ -3477,7 +3483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6998378380158817290, guid: 7955cd3d52c35f94b92a51d6d6f96f43, type: 3}
       propertyPath: m_Name
-      value: Obstacle (8)
+      value: TallObstacle
       objectReference: {fileID: 0}
     - target: {fileID: 6998378380158817290, guid: 7955cd3d52c35f94b92a51d6d6f96f43, type: 3}
       propertyPath: m_IsActive
