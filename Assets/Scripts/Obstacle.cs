@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float speed = 5f;
+    public AudioSource hitSound;
 
     void Update()
     {
@@ -26,15 +24,22 @@ public class Obstacle : MonoBehaviour
             {
                 if (!player.IsJumping())
                 {
-                    Debug.Log("?? Hindernis getroffen (2D)!");
-                    // TODO: Leben abziehen
+                    Debug.Log("Hindernis getroffen (2D)!");
+
+                    // Play hit sound
+                    if (hitSound != null)
+                        hitSound.Play();
+
+                    // Register obstacle hit with ScoreManager
+                    if (ScoreManager.Instance != null)
+                        ScoreManager.Instance.ObstacleHit();
                 }
                 else
                 {
-                    Debug.Log("?? Spieler hat das Hindernis übersprungen (2D).");
+                    Debug.Log("Spieler hat das Hindernis übersprungen (2D).");
                 }
 
-                Destroy(gameObject); // Optional
+                Destroy(gameObject);
             }
         }
     }

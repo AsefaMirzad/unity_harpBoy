@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
+    path: Assets/Rhythm Game Tutorial/Scenes/Main Menu.unity
     guid: fd342f53473e36446817442bc5eb71a8
-  - enabled: 1
-    path: Assets/Scenes/Start 1.unity
+  - enabled: 0
+    path: Assets/Rhythm Game Tutorial/Scenes/Start 1.unity
     guid: 8f9498111f662bc4fa636d6a874865dc
+  - enabled: 1
+    path: Assets/Rhythm Game Tutorial/Scenes/Start.unity
+    guid: cfc974bfd335a87438fb46dcab8981fd
   m_configObjects: {}
