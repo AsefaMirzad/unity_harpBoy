@@ -1012,7 +1012,7 @@ MonoBehaviour:
   perfectHitsValue: {fileID: 723331160}
   missedHitsValue: {fileID: 325538177}
   percentHitValue: {fileID: 1903861623}
-  rankValue: {fileID: 1392113489}
+  rankValue: {fileID: 1294892955}
   finalScoreValue: {fileID: 745663033}
   perfectSound: {fileID: 294210626}
   goodSound: {fileID: 515992357}
@@ -2649,7 +2649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1605572179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9227,9 +9227,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 294210627}
-  - {fileID: 1605572182}
   - {fileID: 515992358}
   - {fileID: 897936581}
+  - {fileID: 1605572182}
   - {fileID: 1665987928}
   - {fileID: 1732171033}
   - {fileID: 714611011}
