@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class ArrowHitDetector : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float hitRange = 1.0f; // Bereich, in dem ein Pfeil getroffen werden kann
+    public AudioClip hitSound; // Sound, der bei einem Treffer abgespielt wird
+    private AudioSource audioSource; // AudioSource-Komponente
+
     void Start()
     {
-        
+        // Füge eine AudioSource-Komponente hinzu, falls nicht vorhanden
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
-
-    // Update is called once per frame
-    public float hitRange = 1.0f; // Bereich, in dem ein Pfeil getroffen werden kann
 
     void Update()
     {
@@ -31,6 +36,12 @@ public class ArrowHitDetector : MonoBehaviour
             {
                 Destroy(arrow.gameObject);
                 Debug.Log("Treffer! " + key);
+
+                // Spiele den Sound ab, wenn einer zugewiesen wurde
+                if (hitSound != null)
+                {
+                    audioSource.PlayOneShot(hitSound);
+                }
                 break;
             }
         }
